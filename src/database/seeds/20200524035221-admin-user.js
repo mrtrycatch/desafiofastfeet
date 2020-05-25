@@ -3,12 +3,13 @@ const bcrypt = require('bcryptjs');
 module.exports = {
   up: (queryInterface) => {
     return queryInterface.bulkInsert(
-      'Users',
+      'users',
       [
         {
-          name: 'Distribuidora FastFeet',
-          Email: 'admin@fastfeet.com',
+          nome: 'Distribuidora FastFeet',
+          email: 'admin@fastfeet.com',
           password_hash: bcrypt.hashSync('123456', 8),
+          provider: true,
           created_at: new Date(),
           updated_at: new Date(),
         },
@@ -18,6 +19,6 @@ module.exports = {
   },
 
   down: (queryInterface) => {
-    return queryInterface.bulkDelete('Users', null, {});
+    return queryInterface.bulkDelete('users', null, {});
   },
 };
