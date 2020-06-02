@@ -7,7 +7,6 @@ export default async (req, res, next) => {
     return res.status(400).json({ error: 'User does not exists' });
   }
 
-  //const [provider] = userExists;
   if (!userExists.provider) {
     return res.status(401).json({ error: 'You do not have permission' });
   }
